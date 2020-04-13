@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { BaseModal } from "./BaseOverlay";
 import styled from "styled-components";
 
@@ -49,4 +50,9 @@ export default function Toast(props) {
 Toast.defaultProps = {
   message: "",
   type: "success"
+};
+
+Toast.propTypes = {
+  message: PropTypes.string,
+  type: PropTypes.string.isRequired
 };

@@ -1,5 +1,6 @@
 import React from "react";
-import { render, fireEvent, waitForElement } from "@testing-library/react";
+import { render, fireEvent, waitForElement, act } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import App from "./App";
 import axiosMock from "axios";
 
@@ -31,15 +32,24 @@ test("Login form", async () => {
   });
 
   expect(submitBtn).toBeTruthy();
-  // fireEvent.submit(form);
+  fireEvent.submit(form);
 
-  // await waitForElement(() => {
-  //   expect(getByLabelText("success")).toBeTruthy();
-  // });
+  await waitForElement(() => {
+    expect(getByLabelText("loading")).toBeTruthy();
+  });
 
-  // expect(mockSubmit).toBeCalledTimes(1);
-  // expect(email.value).toBe("");
-  // expect(password.value).toBe("");
+  await waitForElement(() => {
+    expect(getByLabelText("success")).toBeTruthy();
+  });
 
-  // expect(submitBtn.disabled).toBeTruthy();
+  expect(mockSubmit).toBeCalledTimes(1);
+  expect(email.value).toBe("");
+  expect(password.value).toBe("");
+
+  expect(submitBtn.disabled).toBeTruthy();
+});
+
+test("App snapshot", () => {
+  const { container } = render(<App />);
+  expect(container.firstChild).toMatchSnapshot();
 });

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import useStateHook from "./useStateHook";
 import validator from "./utils/inputValidator";
 import endpoint from "./endpoint";
@@ -120,4 +121,8 @@ export default App;
 
 App.defaultProps = {
   submit: () => {}
+};
+
+App.propTypes = {
+  submit: PropTypes.func
 };

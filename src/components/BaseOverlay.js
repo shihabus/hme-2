@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const modalRoot = document.getElementById("root");
 
-export class BaseModal extends React.PureComponent {
+class BaseModal extends React.PureComponent {
   constructor(props) {
     super(props);
     this.el = document.createElement("div");
@@ -26,3 +26,5 @@ export class BaseModal extends React.PureComponent {
 BaseModal.propTypes = {
   children: PropTypes.node
 };
+
+export { BaseModal };

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot 1`] = `
+<div
+  class="sc-fzozJi hHBylK"
+>
+  <form
+    aria-label="form"
+    class="sc-fzoLsD jNtXXC"
+  >
+    <img
+      alt="healthifyme logo"
+      class="sc-AxjAm fqmBvb"
+      src="test-file-stub"
+    />
+    <p
+      class="sc-AxiKw cCwMHv"
+    >
+      Sign In
+    </p>
+    <p
+      class="sc-AxiKw sc-AxhCb eINRKv"
+    >
+      Use you Healthifyme Account
+    </p>
+    <div
+      class="sc-fzplWN izHooe"
+    >
+      <input
+        aria-label="email"
+        class="sc-fznyAO cScoOw"
+        type="email"
+        value=""
+      />
+      <p
+        class="sc-fznKkj fUrdSc"
+      />
+    </div>
+    <div
+      class="sc-fzplWN izHooe"
+    >
+      <input
+        aria-label="password"
+        class="sc-fznyAO cScoOw"
+        type="password"
+        value=""
+      />
+      <p
+        class="sc-fznKkj fUrdSc"
+      />
+    </div>
+    <input
+      class="sc-fzpans dauElG"
+      disabled=""
+      type="submit"
+      value="Login"
+    />
+  </form>
+</div>
+`;
