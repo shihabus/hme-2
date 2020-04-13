@@ -3,6 +3,7 @@ import { render, fireEvent, waitForElement, act } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "./App";
 import axiosMock from "axios";
+import endpoint from "./endpoint";
 
 jest.mock("axios");
 
@@ -34,19 +35,8 @@ test("Login form", async () => {
   expect(submitBtn).toBeTruthy();
   fireEvent.submit(form);
 
-  await waitForElement(() => {
-    expect(getByLabelText("loading")).toBeTruthy();
-  });
-
-  await waitForElement(() => {
-    expect(getByLabelText("success")).toBeTruthy();
-  });
-
-  expect(mockSubmit).toBeCalledTimes(1);
-  expect(email.value).toBe("");
-  expect(password.value).toBe("");
-
-  expect(submitBtn.disabled).toBeTruthy();
+  expect(axiosMock.get).toHaveBeenCalledTimes(1);
+  expect(axiosMock.get).toHaveBeenCalledWith(endpoint);
 });
 
 test("App snapshot", () => {
