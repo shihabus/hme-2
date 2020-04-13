@@ -1,9 +1,10 @@
 import React from "react";
-import { render, fireEvent, waitForElement, act } from "@testing-library/react";
+import { render, fireEvent, waitForElement } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "./App";
 import axiosMock from "axios";
 import endpoint from "./endpoint";
+import { act } from "react-dom/test-utils";
 
 jest.mock("axios");
 
@@ -33,7 +34,10 @@ test("Login form", async () => {
   });
 
   expect(submitBtn).toBeTruthy();
-  fireEvent.submit(form);
+
+  act(() => {
+    fireEvent.submit(form);
+  });
 
   expect(axiosMock.get).toHaveBeenCalledTimes(1);
   expect(axiosMock.get).toHaveBeenCalledWith(endpoint);
